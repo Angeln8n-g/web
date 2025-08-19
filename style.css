@@ -1,0 +1,534 @@
+:root {
+    --neon-blue: #00ffff;
+    --cyber-purple: #8A2BE2;
+    --synth-pink: #ff00ff;
+    --gold-warm: #ffd700;
+    --orange-soft: #ffab70;
+    --dark-bg: #0a0a1a;
+    --metal-brush: #33334d;
+    --text-color: #e0e0ff;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.background-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-container {
+    position: relative;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8rem;
+    margin: 0;
+    color: var(--synth-pink);
+    text-shadow: 0 0 10px var(--synth-pink),
+                 0 0 20px var(--synth-pink),
+                 0 0 40px var(--cyber-purple),
+                 0 0 80px var(--neon-blue);
+    animation: pulse 4s infinite ease-in-out;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--synth-pink),
+                     0 0 20px var(--synth-pink),
+                     0 0 40px var(--cyber-purple),
+                     0 0 80px var(--neon-blue);
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px var(--neon-blue),
+                     0 0 40px var(--neon-blue),
+                     0 0 80px var(--cyber-purple),
+                     0 0 120px var(--synth-pink);
+    }
+}
+
+.tagline {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--gold-warm);
+    text-shadow: 0 0 5px var(--gold-warm);
+}
+
+main {
+    padding: 4rem 2rem;
+}
+
+section {
+    padding: 6rem 2rem;
+    border-bottom: 1px solid var(--metal-brush);
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--metal-brush);
+    font-size: 0.9rem;
+}
+
+.social-icons, .newsletter {
+    margin-bottom: 1rem;
+}
+
+.newsletter h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold-warm);
+    margin-bottom: 0.5rem;
+}
+
+/* Glitch effect for titles */
+h2 {
+    position: relative;
+    animation: glitch 5s infinite steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 0 0 var(--neon-blue), -1px 0 0 var(--synth-pink);
+  }
+  10%, 12%, 100% {
+    text-shadow: none;
+  }
+  11% {
+    text-shadow: 1px 0 0 var(--neon-blue), -1px 0 0 var(--synth-pink);
+    transform: skewX(-5deg);
+  }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    display: none; /* Hide the original cursor dot */
+}
+
+.cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1.5rem;
+    color: var(--synth-pink);
+    z-index: 9999;
+    animation: fade-out 0.5s forwards;
+    font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* HUNYKHO Archives Section */
+.archives-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    perspective: 1000px;
+}
+
+.album-card {
+    width: 300px;
+    height: 300px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.album-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.album-card:hover .album-card-inner {
+    transform: rotateY(180deg);
+}
+
+.album-card-front, .album-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.album-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.album-card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    color: var(--text-color);
+}
+
+.album-card.theme-social .album-card-back {
+    background: linear-gradient(45deg, var(--neon-blue), var(--cyber-purple));
+}
+
+.album-card.theme-love .album-card-back {
+    background: linear-gradient(45deg, var(--synth-pink), var(--gold-warm));
+}
+
+.album-card-back h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+}
+
+/* The HUNYKHO Story Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--neon-blue);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.timeline-item {
+    padding: 1rem 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-left: 0;
+    padding-right: 40px;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-right: 0;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background: rgba(35, 35, 65, 0.5);
+    border: 1px solid var(--metal-brush);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.timeline-content h3 {
+    color: var(--gold-warm);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Live HUNYKHO Section */
+#live-map {
+    height: 500px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    box-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue) inset;
+    background-color: #000; /* Fallback for when tiles are loading */
+}
+
+.leaflet-container {
+    border-radius: 15px;
+}
+
+/* Custom marker style */
+.holographic-marker {
+    background-color: var(--synth-pink);
+    border: 2px solid var(--neon-blue);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 15px var(--synth-pink);
+    animation: pulse-marker 2s infinite;
+}
+
+@keyframes pulse-marker {
+    0% { transform: scale(0.9); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(0.9); }
+}
+
+/* HUNY Player */
+.huny-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(35, 35, 65, 0.8);
+    border: 1px solid var(--metal-brush);
+    border-radius: 10px;
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--metal-brush);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: var(--text-color);
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom-color: var(--synth-pink);
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label {
+    top: -20px;
+    font-size: 0.9rem;
+    color: var(--synth-pink);
+}
+
+.submit-btn {
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 15px 30px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--neon-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+
+.player-controls button {
+    background: transparent;
+    border: 1px solid var(--synth-pink);
+    color: var(--synth-pink);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    margin-right: 15px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.player-controls button:hover {
+    background: var(--synth-pink);
+    color: var(--dark-bg);
+}
+
+#progress-bar {
+    width: 200px;
+}
+
+/* Audio Visualizer */
+#audio-visualizer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Behind particles */
+}
+
+/* HK Symbol */
+.hk-symbol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--gold-warm);
+    position: relative;
+}
+
+.hk-symbol .char {
+    position: relative;
+    z-index: 1;
+}
+
+.hk-symbol::before, .hk-symbol::after {
+    content: '';
+    position: absolute;
+    border: 1px solid var(--gold-warm);
+    border-radius: 50%;
+    animation: wave 3s infinite;
+}
+
+.hk-symbol::after {
+    animation-delay: -1.5s;
+}
+
+@keyframes wave {
+    0% {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* --- Mobile Optimization --- */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 4rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 4rem 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Timeline on mobile */
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 10px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    /* Player on mobile */
+    .huny-player {
+        width: 90%;
+        padding: 10px;
+    }
+
+    #progress-bar {
+        width: 150px;
+    }
+
+    /* Album cards on mobile */
+    .archives-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

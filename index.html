@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNYKHO - Official Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+</head>
+<body>
+    <canvas id="audio-visualizer"></canvas>
+    <div id="huny-player" class="huny-player">
+        <audio id="audio-source" src=""></audio> <!-- No audio source for now -->
+        <div class="player-controls">
+            <button id="play-pause-btn">Play</button>
+            <input type="range" id="progress-bar" value="0" step="1">
+        </div>
+    </div>
+    <div class="background-particles"></div>
+
+    <header class="hero-section">
+        <div class="logo-container">
+            <h1 class="logo">HUNYKHO</h1>
+        </div>
+        <div class="tagline">
+            <p>Where Future Beats Meet Human Hearts</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="archives" class="hunykho-archives">
+            <h2>HUNYKHO Archives</h2>
+            <!-- Album cards will go here -->
+        </section>
+
+        <section id="story" class="hunykho-story">
+            <h2>The HUNYKHO Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2018 - The Spark</h3>
+                        <p>HUNYKHO begins experimenting with electronic music production in a small home studio, finding a unique voice by blending synth-pop with sharp social commentary.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020 - Digital Dystopia</h3>
+                        <p>Release of the debut EP, "Digital Dystopia". The record gains critical acclaim for its bold critique of modern society and its innovative sound.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021 - Golden Threads</h3>
+                        <p>A shift in focus with the single "Golden Threads", a heartfelt ballad that explores human connection, showing a new, warmer side of the artist's work.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2022 - Neon Rebellion Tour</h3>
+                        <p>First international tour. The live shows are praised for their immersive visuals and the powerful dual-themed setlist, solidifying HUNYKHO's status as a visionary performer.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023 - Synthetic Hearts</h3>
+                        <p>The first full-length album, "Synthetic Hearts", is released, perfectly balancing the cold, futuristic critique with warm, emotional storytelling. It tops alternative charts worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="live" class="hunykho-live">
+            <h2>Live HUNYKHO</h2>
+            <div id="live-map"></div>
+        </section>
+
+        <section id="vault" class="huny-vault">
+            <h2>HUNY Vault</h2>
+            <!-- Video gallery will go here -->
+        </section>
+
+        <section id="thoughts" class="hunykho-thoughts">
+            <h2>HUNYKHO Thoughts</h2>
+            <!-- Futuristic blog will go here -->
+        </section>
+
+        <section id="connect" class="hunykho-connect">
+            <h2>Connect with HUNYKHO</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="hk-symbol">
+            <div class="char">H</div>
+            <div class="char">K</div>
+        </div>
+        <div class="social-icons">
+            <!-- Social media icons will be dynamically generated here -->
+        </div>
+        <div class="newsletter">
+            <h3>Join the HUNY Frequency</h3>
+            <p>Get exclusive content and updates.</p>
+        </div>
+        <p>&copy; 2024 www.hunykho.com - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
